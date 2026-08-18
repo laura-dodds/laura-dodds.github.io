@@ -1,2 +1,2 @@
 # laura-dodds.github.io
-My personal website
+My personal website.
