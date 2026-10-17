@@ -140,8 +140,11 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 64em) {
   .content {
+    /* Text sits 4rem from the 19rem sidebar and 4rem from the right edge
+       (margins plus the container's 1rem padding) */
+    max-width: none;
     margin-left: 22rem;
-    margin-right: 4rem;
+    margin-right: 3rem;
   }
 }
 
@@ -310,4 +313,25 @@ a.sidebar-nav-item:focus {
   border-collapse: separate;
   margin-left: 0;
   margin-right: 0;
+}
+/* Draw list bullets at a fixed offset (--bullet-indent) from the content
+   edge so publication images and notes can line up with them */
+.content {
+  --bullet-indent: 1rem;
+}
+.content ul {
+  list-style: none;
+  padding-left: calc(var(--bullet-indent) + 1rem);
+}
+.content ul > li {
+  position: relative;
+}
+.content ul > li::before {
+  content: "\2022";
+  position: absolute;
+  left: -1rem;
+}
+.content .paper_icon,
+.content .pub-note {
+  padding-left: var(--bullet-indent);
 }
